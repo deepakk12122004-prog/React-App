@@ -26,7 +26,7 @@ router.post("/", upload.single("image"), async (req, res) => {
    try { 
     const post = await Post.create({ 
       userId: req.session.userId, 
-      image: `/uploads/${req.file.filename}`, 
+      image: req.file.path, 
       caption: req.body.caption, 
       location: req.body.location
     }); 
