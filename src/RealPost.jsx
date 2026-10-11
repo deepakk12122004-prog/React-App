@@ -93,7 +93,7 @@ function RealPost({ post, onDeleted }) {
  
       <img 
         className="image mb-2" 
-        src={`${import.meta.env.VITE_API_URL}${post.image}`} 
+        src={post.image.startsWith("http") ? post.image : `${import.meta.env.VITE_API_URL}${post.image}`} 
         alt="post" 
       /> 
  
