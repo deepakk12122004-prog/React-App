@@ -22,7 +22,7 @@ function Profilepage() {
         <img 
           className='rounded-circle' 
           style={{ width: '90px', height: '90px', objectFit: 'cover' }} 
-              src={profile.profilePic ? `${import.meta.env.VITE_API_URL}${profile.profilePic}` : "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90'%3E%3Crect width='90' height='90' fill='%23ccc'/%3E%3C/svg%3E"}
+               src={user.profilePic?.startsWith('http') ? user.profilePic :  `${import.meta.env.VITE_API_URL}${user.profilePic}`}
           alt="pic" 
         /> 
         <div className='ms-4'> 

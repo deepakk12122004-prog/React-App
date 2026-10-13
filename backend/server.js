@@ -8,6 +8,14 @@ const multer = require('multer');
 const path = require('path');  
 require('dotenv').config();
 
+const cloudinary = require('cloudinary').v2; 
+const { CloudinaryStorage } = require('multer-storage-cloudinary'); 
+cloudinary.config({ 
+cloud_name: process.env.CLOUDINARY_CLOUD_NAME, 
+api_key: process.env.CLOUDINARY_API_KEY, 
+api_secret: process.env.CLOUDINARY_API_SECRET, 
+});
+
 const fs = require('fs');
 fs.mkdirSync(path.join(__dirname, 'uploads'), { recursive: true })
  
@@ -139,9 +147,12 @@ app.put('/profile', requireAuth, async (req, res) => {
   res.json(user); 
 }); 
 
-const profileStorage = multer.diskStorage({ 
-  destination: (req, file, cb) => cb(null, 'uploads/'), 
-  filename: (req, file, cb) => cb(null, 'profile-' + Date.now() + path.extname(file.originalname)) 
+const profileStorage = new CloudinaryStorage({ 
+   cloudinary, 
+    params: { 
+    folder: 'instagram-clone/profiles', 
+    allowed_formats: ['jpg', 'jpeg', 'png', 'webp'], 
+}, 
 }); 
 const uploadProfile = multer({ storage: profileStorage }); 
  
@@ -149,7 +160,7 @@ app.post('/profile/picture', requireAuth, uploadProfile.single('image'), async (
   try { 
     const user = await User.findByIdAndUpdate( 
       req.session.userId, 
-      { profilePic: `/uploads/${req.file.filename}` }, 
+      { profilePic: req.file.path },  
       { new: true } 
     ).select('-password'); 
     res.json(user); 

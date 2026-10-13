@@ -29,7 +29,7 @@ function suggestion() {
           <div className='d-flex'> 
              <img 
               className='pp rounded-circle mt-1' 
-            src= {profile.profilePic ? `${import.meta.env.VITE_API_URL}${profile.profilePic}` : "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Crect width='40' height='40' fill='%23ccc'/%3E%3C/svg%3E" }
+                src={user.profilePic?.startsWith('http') ? user.profilePic :  `${import.meta.env.VITE_API_URL}${user.profilePic}`}
               alt='profilePic' 
             /> 
             <div> 
@@ -54,7 +54,7 @@ function suggestion() {
                 <div className='d-flex'> 
                   <img 
                     className='pp rounded-circle mt-1' 
-                    src={s.profilePic ? `${import.meta.env.VITE_API_URL}${s.profilePic}` : "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Crect width='40' height='40' fill='%23ccc'/%3E%3C/svg%3E"} 
+                     src={user.profilePic?.startsWith('http') ? user.profilePic :  `${import.meta.env.VITE_API_URL}${user.profilePic}`}
                     alt='profilePic' 
                   /> 
                   <div> 
