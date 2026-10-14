@@ -1,6 +1,8 @@
 import axios from 'axios' 
 import React, { useEffect, useState } from 'react' 
+import { useNavigate } from 'react-router-dom'; 
 
+const navigate = useNavigate();
 const DEFAULT_PIC = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64' height='64' fill='%23dbdbdb'/><circle cx='32' cy='24' r='12' fill='%23ffffff'/><path d='M8 64c0-14 10-22 24-22s24 8 24 22z' fill='%23ffffff'/><svg>";
 function suggestion() { 
   const [profile, setprofile] = useState(null) 
@@ -37,7 +39,12 @@ function suggestion() {
               <h5 className='me-2 mb-0'>{profile.username}</h5> 
               <p className='d-block small text-muted mt-0 mb-2 '><small>{profile.name}</small></p> 
             </div> 
-            <small className='ms-auto text-primary blue'>Switch</small> 
+            <small 
+              className='ms-auto text-primary blue' 
+              style={{ cursor: 'pointer' }} 
+              onClick={() => navigate('/login')} 
+             > Switch 
+            </small>
           </div> 
         ) : ( 
           <p>Loading</p> 
