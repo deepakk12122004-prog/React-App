@@ -48,7 +48,7 @@ function EditProfile() {
         <img 
           className='rounded-circle' 
           style={{ width: '60px', height: '60px', objectFit: 'cover' }} 
-           src={profile.profilePic?.startsWith('http') ? profile.profilePic :  `${import.meta.env.VITE_API_URL}${profile.profilePic}`}
+           src={profilePic?.startsWith('http') ? profilePic :  `${import.meta.env.VITE_API_URL}${profilePic}`}
           alt="pic" 
         /> 
         <div className='ms-3'> 
