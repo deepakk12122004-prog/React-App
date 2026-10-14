@@ -1,6 +1,7 @@
 import axios from 'axios' 
 import React, { useEffect, useState } from 'react' 
- 
+
+const DEFAULT_PIC = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64' height='64' fill='%23dbdbdb'/><circle cx='32' cy='24' r='12' fill='%23ffffff'/><path d='M8 64c0-14 10-22 24-22s24 8 24 22z' fill='%23ffffff'/><svg>";
 function suggestion() { 
   const [profile, setprofile] = useState(null) 
   const [suggestion, setsuggestion] = useState([]) 
@@ -55,7 +56,7 @@ function suggestion() {
                   <img 
                     className='pp rounded-circle mt-1' 
                      src={s.profilePic?.startsWith('http') ? s.profilePic :  `${import.meta.env.VITE_API_URL}${s.profilePic}`}
-                     onError={(e)=>{ e.target.onerror = null;}}
+                     onError={(e)=>{ e.target.onerror = null; e.target.src= DEFAULT_PIC;}}
                     alt='profilePic' 
                   /> 
                   <div> 

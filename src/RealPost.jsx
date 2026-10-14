@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"; 
 import { useState } from "react"; 
  
+const DEFAULT_PIC = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64' height='64' fill='%23dbdbdb'/><circle cx='32' cy='24' r='12' fill='%23ffffff'/><path d='M8 64c0-14 10-22 24-22s24 8 24 22z' fill='%23ffffff'/><svg>";
 function RealPost({ post, onDeleted }) { 
   const [likes, setLikes] = useState(post.likes); 
   const [reposts, setReposts] = useState(post.reposts); 
@@ -50,7 +51,8 @@ function RealPost({ post, onDeleted }) {
         <div className="d-flex"> 
           <img 
            className="dp rounded-circle" 
-              src={profile.profilePic?.startsWith('http') ? profile.profilePic :  `${import.meta.env.VITE_API_URL}${profile.profilePic}`}
+              src={post.profilePic?.startsWith('http') ? post.profilePic :  `${import.meta.env.VITE_API_URL}${post.profilePic}`}
+              onError={(e)=>{ e.target.onerror = null; e.target.src= DEFAULT_PIC;}}
              alt="profile pic" 
 />
           <div> 
