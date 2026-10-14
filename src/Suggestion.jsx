@@ -2,9 +2,9 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react' 
 import { useNavigate } from 'react-router-dom'; 
 
-const navigate = useNavigate();
 const DEFAULT_PIC = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64' height='64' fill='%23dbdbdb'/><circle cx='32' cy='24' r='12' fill='%23ffffff'/><path d='M8 64c0-14 10-22 24-22s24 8 24 22z' fill='%23ffffff'/><svg>";
 function suggestion() { 
+  const navigate = useNavigate();
   const [profile, setprofile] = useState(null) 
   const [suggestion, setsuggestion] = useState([]) 
   const [followed, setFollowed] = useState(0) 
