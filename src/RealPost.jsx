@@ -50,7 +50,7 @@ function RealPost({ post, onDeleted }) {
         <div className="d-flex"> 
           <img 
            className="dp rounded-circle" 
-              src={user.profilePic?.startsWith('http') ? user.profilePic :  `${import.meta.env.VITE_API_URL}${user.profilePic}`} 
+              src={profile.profilePic?.startsWith('http') ? profile.profilePic :  `${import.meta.env.VITE_API_URL}${profile.profilePic}`}
              alt="profile pic" 
 />
           <div> 

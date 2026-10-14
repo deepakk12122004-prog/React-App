@@ -31,7 +31,7 @@ function Following() {
             <img 
               className='rounded-circle' 
               style={{ width: '40px', height: '40px', objectFit: 'cover' }} 
-               src={user.profilePic?.startsWith('http') ? user.profilePic :  `${import.meta.env.VITE_API_URL}${user.profilePic}`} 
+              src={profile.profilePic?.startsWith('http') ? profile.profilePic :  `${import.meta.env.VITE_API_URL}${profile.profilePic}`} 
               alt="pic" 
             /> 
             <b className='ms-3'>{f.username}</b> 

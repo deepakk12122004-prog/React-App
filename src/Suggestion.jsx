@@ -29,7 +29,7 @@ function suggestion() {
           <div className='d-flex'> 
              <img 
               className='pp rounded-circle mt-1' 
-                src={user.profilePic?.startsWith('http') ? user.profilePic :  `${import.meta.env.VITE_API_URL}${user.profilePic}`}
+                src={profile.profilePic?.startsWith('http') ? profile.profilePic :  `${import.meta.env.VITE_API_URL}${profile.profilePic}`}
               alt='profilePic' 
             /> 
             <div> 
@@ -54,7 +54,8 @@ function suggestion() {
                 <div className='d-flex'> 
                   <img 
                     className='pp rounded-circle mt-1' 
-                     src={user.profilePic?.startsWith('http') ? user.profilePic :  `${import.meta.env.VITE_API_URL}${user.profilePic}`}
+                     src={s.profilePic?.startsWith('http') ? s.profilePic :  `${import.meta.env.VITE_API_URL}${s.profilePic}`}
+                     onError={(e)=>{ e.target.onerror = null;}}
                     alt='profilePic' 
                   /> 
                   <div> 
