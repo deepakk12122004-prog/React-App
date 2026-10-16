@@ -6,7 +6,6 @@ import 'bootstrap-icons/font/bootstrap-icons.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom' 
  
 import App from './App.jsx' 
-import View from './View.jsx' 
 import Profilepage from './Profilepage.jsx' 
 import Login from './Login.jsx' 
 import ProtectedRoute from './ProtectedRoute.jsx' 
@@ -47,14 +46,7 @@ const router = createBrowserRouter([
       </ProtectedRoute> 
     ), 
   }, 
-  { 
-    path: '/story/:id/:tot', 
-    element: ( 
-      <ProtectedRoute> 
-        <View /> 
-      </ProtectedRoute> 
-    ), 
-  }, 
+  
   { 
     path: '/profilepage', 
     element: ( 
